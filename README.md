@@ -1,0 +1,2 @@
+For any viewer: this is some game written by me as some final project in highschool. It was many years ago. I put it here to not lost it in mail, but to be somewhere where I can easily find it. Plese do not open, and if you do: do not judge it. 
+One day I may do this game legitly.
