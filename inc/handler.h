@@ -12,5 +12,6 @@ public:
 private:
     std::unique_ptr<Cat> catSprite;
 
+    sf::Vector2f setCatPosition();
     void makeCatJump(sf::RenderWindow &window);
 };

@@ -10,10 +10,10 @@ public:
 
     sf::Sprite catSprite;
 
-    void tryCatJump();
+    void toggleCatJump();
+    sf::Vector2f getPosition();
 
 private:
     sf::Clock clock;
-
     bool isJumping{false};
 };

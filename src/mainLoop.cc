@@ -18,12 +18,6 @@ void mainLoop::run() {
     sf::RenderWindow appWindow(sf::VideoMode({800, 600}), "Jumping Cat Game");
     Handler handler;
 
-    // sf::Texture texture;
-    // bool loaded = texture.loadFromFile("img/cat.png");
-
-    // sf::Sprite sprite(texture);
-    // sprite.setPosition(sf::Vector2f({125, 350}));       
-
     while(appWindow.isOpen())
     {
         while(const std::optional event = appWindow.pollEvent())
@@ -31,15 +25,10 @@ void mainLoop::run() {
             if(event->is<sf::Event::Closed>())
                 appWindow.close();
             
-            // if(event->is<sf::Event::MouseButtonPressed>() && sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
-            //     std::cout << " przycisnieto przycisk " <<std::endl;
-            //     sprite.move(sf::Vector2f({2, -5}));
-            // }
         }
 
         appWindow.clear(sf::Color(100, 0, 0));
         handler.run(appWindow);
-        // appWindow.draw(sprite);
         appWindow.display();
     }
 
