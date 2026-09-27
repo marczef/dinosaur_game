@@ -1,0 +1,48 @@
+#include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
+#include "mainLoop.h"
+
+mainLoop & mainLoop::get() {
+    if(main == nullptr) {
+        main = std::unique_ptr<mainLoop>(new mainLoop());
+    }
+
+    return *main;
+}
+
+void mainLoop::run() {
+
+    sf::RenderWindow appWindow(sf::VideoMode({800, 600}), "Jumping Cat Game");
+
+    sf::Texture texture;
+    bool loaded = texture.loadFromFile("img/cat.png");
+
+    sf::Sprite sprite(texture);
+    sprite.setPosition(sf::Vector2f({125, 350}));       
+
+    while(appWindow.isOpen())
+    {
+        while(const std::optional event = appWindow.pollEvent())
+        {
+            if(event->is<sf::Event::Closed>())
+                appWindow.close();
+            
+            if(event->is<sf::Event::MouseButtonPressed>() && sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+                std::cout << " przycisnieto przycisk " <<std::endl;
+                sprite.move(sf::Vector2f({2, -5}));
+            }
+        }
+
+        if(sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) {
+            std::cout << "drugi raz przycisnieto" << std::endl;
+            
+        }
+
+        appWindow.clear(sf::Color( 100, 0, 0 ));
+        appWindow.draw(sprite);
+        appWindow.display();
+    }
+
+}
